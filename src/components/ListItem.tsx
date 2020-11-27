@@ -51,7 +51,6 @@ const formatDate = function (date: Date): string {
 
 const ListItem: React.FC<ListItemProps> = ({id, eventData, isLast }) => (
     <div key={id} className={isLast ? styles.lastListItem : styles.listItem}>
-  
         <div className={styles.avatarContainer}>
           <Identicon opts={{seed: eventData.userAddress || eventData.transactionHash}}/>
         </div>
