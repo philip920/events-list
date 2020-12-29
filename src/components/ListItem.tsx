@@ -65,8 +65,4 @@ const ListItem: React.FC<ListItemProps> = ({id, eventData, isLast }) => (
     </div>
 )
 
-
-export default ListItem
-
-
-
+export default ListItem;
