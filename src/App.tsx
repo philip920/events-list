@@ -79,7 +79,7 @@ function App() {
         </div>
       :
         <div className={styles.loadingContainer}>
-          <text className={styles.loader}>loading...</text>
+          <p className={styles.loader}>loading...</p>
         </div>
       }
     </>
