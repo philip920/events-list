@@ -8,7 +8,7 @@ import { InfuraProvider } from "ethers/providers";
 type PayoutClaimed = Promise<{
   amount: number
   fundingPotId: number
-  token: any
+  token: string
   date: Date | undefined
   userAddress: string
 }>
@@ -39,7 +39,7 @@ type Event = {
   userAddress?: string
   amount?: number
   fundingPotId?: number
-  token?: any
+  token?: string
   title?: string
   transactionHash?: string | undefined
 }
