@@ -98,7 +98,7 @@ const getPayoutsClaimed = async (colonyClient: ColonyClient): Promise<PayoutClai
    return requiredData
 }
 
-const getColonyRoleSets = async (colonyClient: ColonyClient): Promise<ColonyRoleSet[]> => {
+const getColonyRoleSet = async (colonyClient: ColonyClient): Promise<ColonyRoleSet[]> => {
   // @ts-ignore
   const eventFilter = colonyClient.filters.ColonyRoleSet(null,null,null,null);
   const eventLogs = await getLogs(colonyClient, eventFilter);
@@ -163,7 +163,7 @@ function App() {
     let [PayoutsClaimed,InitializedColonies, ColonyRoleSets, AddedDomains ] = await Promise.all(
       [Promise.all(await getPayoutsClaimed(colonyClient)),
         Promise.all(await getInitializedColonies(colonyClient)),
-        Promise.all(await getColonyRoleSets(colonyClient)),
+        Promise.all(await getColonyRoleSet(colonyClient)),
         Promise.all(await getAddedDomains(colonyClient))])
     
     const FullEventsList: Event[] = (PayoutsClaimed as Event[]).concat(InitializedColonies as Event[]).concat(ColonyRoleSets as Event[]).concat(AddedDomains as Event[])
