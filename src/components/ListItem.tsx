@@ -22,16 +22,16 @@ type ListItemProps = {
 
 const getText = function (eventData: Event): React.ReactNode {
   if(eventData.amount || eventData.amount === 0) {
-    return <p>User <strong>{eventData.userAddress}</strong> claimed <strong>{eventData.amount}{getTokenSymbol(eventData.token)}</strong> payout from pot <strong>{eventData.fundingPotId}</strong></p>
+    return <text>User <strong>{eventData.userAddress}</strong> claimed <strong>{eventData.amount}{getTokenSymbol(eventData.token)}</strong> payout from pot <strong>{eventData.fundingPotId}</strong></text>
   } else if (eventData.role) {
-    return <p><strong>{eventData.role}</strong>  role assigned to user <strong>{eventData.userAddress}</strong> in domain <strong>{eventData.domainId}</strong></p>
+    return <text><strong>{eventData.role}</strong>  role assigned to user <strong>{eventData.userAddress}</strong> in domain <strong>{eventData.domainId}</strong></text>
   } else if (eventData.title) {
-    return <p>{eventData.title}</p>
+    return <text>{eventData.title}</text>
   } else if(!eventData.title && eventData.domainId) {
-    return <p>Domain <strong>{eventData.domainId}</strong> added</p>
+    return <text>Domain <strong>{eventData.domainId}</strong> added</text>
   } else {
     console.log("Whats this?:", eventData);
-    <p>unknown</p>
+    <text>unknown</text>
   }
 }
 
@@ -59,7 +59,7 @@ const ListItem: React.FC<ListItemProps> = ({id, eventData, isLast }) => (
            {getText(eventData)}
           </div>
           <div className={styles.dateContainer}>
-            <p>{eventData.date && formatDate(eventData.date)}</p>
+            <text>{eventData.date && formatDate(eventData.date)}</text>
           </div>
         </div>
     </div>
