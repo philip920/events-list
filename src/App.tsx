@@ -42,7 +42,7 @@ function App() {
       MAINNET_BETACOLONY_ADDRESS
     );
 
-    let [PayoutsClaimed,InitializedColonies, ColonyRoleSets, AddedDomains ] = await Promise.all(
+    const [PayoutsClaimed,InitializedColonies, ColonyRoleSets, AddedDomains] = await Promise.all(
       [Promise.all(await getPayoutsClaimed(colonyClient)),
         Promise.all(await getInitializedColonies(colonyClient)),
         Promise.all(await getColonyRoleSet(colonyClient)),
