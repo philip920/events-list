@@ -8,14 +8,14 @@ import { getPayoutsClaimed, getColonyRoleSet, getAddedDomains, getInitializedCol
 
 type Event = {
   domainId?: number
-  date: Date | undefined
+  date: Date
   role?: string
   userAddress?: string
   amount?: number
   fundingPotId?: number
   token?: string
   title?: string
-  transactionHash?: string | undefined
+  transactionHash?: string
 }
 
 const MAINNET_NETWORK_ADDRESS = `0x5346D0f80e2816FaD329F2c140c870ffc3c3E2Ef`;
@@ -26,11 +26,11 @@ export const provider = new InfuraProvider('mainnet', INFURA_KEY);
 const wallet = Wallet.createRandom();
 const connectedWallet = wallet.connect(provider);
 
-function App() {
+const App:React.FC = () => {
 
   const [data, setData] = useState<Event[]>([])
 
-  const getClient = async (): Promise<void> => {
+  const getEvents = async (): Promise<void> => {
 
     const networkClient = getColonyNetworkClient(
       Network.Mainnet,
@@ -64,7 +64,7 @@ function App() {
   };
 
   useEffect(() => {
-   getClient()
+    getEvents()
   }, []);
 
   return (
@@ -79,7 +79,7 @@ function App() {
         </div>
       :
         <div className={styles.loadingContainer}>
-          <text className={styles.loader}>loading...</text>
+          <p className={styles.loader}>loading...</p>
         </div>
       }
     </>

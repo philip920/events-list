@@ -20,22 +20,22 @@ type ListItemProps = {
   isLast?: boolean
 }
 
-const getText = function (eventData: Event): React.ReactNode {
+const getText = (eventData: Event): React.ReactNode => {
   if(eventData.amount || eventData.amount === 0) {
-    return <text>User <strong>{eventData.userAddress}</strong> claimed <strong>{eventData.amount}{getTokenSymbol(eventData.token)}</strong> payout from pot <strong>{eventData.fundingPotId}</strong></text>
+    return <p>User <strong>{eventData.userAddress}</strong> claimed <strong>{eventData.amount}{getTokenSymbol(eventData.token)}</strong> payout from pot <strong>{eventData.fundingPotId}</strong></p>
   } else if (eventData.role) {
-    return <text><strong>{eventData.role}</strong>  role assigned to user <strong>{eventData.userAddress}</strong> in domain <strong>{eventData.domainId}</strong></text>
+    return <p><strong>{eventData.role}</strong>  role assigned to user <strong>{eventData.userAddress}</strong> in domain <strong>{eventData.domainId}</strong></p>
   } else if (eventData.title) {
-    return <text>{eventData.title}</text>
+    return <p>{eventData.title}</p>
   } else if(!eventData.title && eventData.domainId) {
-    return <text>Domain <strong>{eventData.domainId}</strong> added</text>
+    return <p>Domain <strong>{eventData.domainId}</strong> added</p>
   } else {
     console.log("Whats this?:", eventData);
-    <text>unknown</text>
+    <p>unknown</p>
   }
 }
 
-const getTokenSymbol = function (token: string): string {
+const getTokenSymbol = (token: string): string => {
   if (token === "0x0dd7b8f3d1fa88FAbAa8a04A0c7B52FC35D4312c") {
     return "BLNY"
   } else {
@@ -43,7 +43,7 @@ const getTokenSymbol = function (token: string): string {
   }
 }
 
-const formatDate = function (date: Date): string {
+const formatDate = (date: Date): string => {
   const dateStringArr = date.toString().split(' ')
   const formattedDate = `${dateStringArr[2]} ${dateStringArr[1]}`
   return formattedDate
@@ -59,7 +59,7 @@ const ListItem: React.FC<ListItemProps> = ({id, eventData, isLast }) => (
            {getText(eventData)}
           </div>
           <div className={styles.dateContainer}>
-            <text>{eventData.date && formatDate(eventData.date)}</text>
+            <p>{eventData.date && formatDate(eventData.date)}</p>
           </div>
         </div>
     </div>

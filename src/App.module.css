@@ -51,11 +51,11 @@
 .lastListItem {
   composes: listItem;
   margin-bottom: 0;
-
 }
 
 .listItem:hover {
   background: rgb(250,250,250);
+  height: fit-content;
 }
 
 .lastListItem:hover {
@@ -65,10 +65,11 @@
 .avatarContainer {
   display: flex;
   justify-content: center;
-  height: 37px;
-  width: 39px;
+  height: 36px;
+  width: 40px;
   border-radius: 50%;
   overflow: hidden;
+  margin: auto;
 }
 
 .dataContainer {
@@ -81,8 +82,6 @@
 }
 
 .textContainer {
-  white-space: nowrap;
-  overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
   font-size: 14px;
@@ -102,7 +101,7 @@
   color: rgb(130,130,130);
 }
 
-.text {
+.p {
   font-weight: 400;
 }
 

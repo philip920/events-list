@@ -1,6 +1,6 @@
 import React from "react";
 
-// sorry I know this is bad practice. babel complained about "experimental jsx not being supported" and adding @babel/preset-react didn't work so i created this little workaround
+// sorry I know this is bad practice. babel complained about "experimental jsx not being supported" and adding @babel/preset-react didn't work so i created this little workaround. Also only seems to be working with a class component.
 import blockies from "../../node_modules/blockies-identicon/blockies"
 
 class Identicon extends React.Component {
@@ -8,7 +8,7 @@ class Identicon extends React.Component {
   constructor(props) {
     super(props);
   }
-  getOpts () {
+  getOpts() {
     return {
       seed: this.props.opts.seed || "foo",
       size: 9,
@@ -23,7 +23,7 @@ class Identicon extends React.Component {
     blockies.render(this.getOpts(), this.canvas);
   }
   render() {
-    return React.createElement("canvas", {ref: canvas => this.canvas = canvas});
+    return React.createElement("canvas", { ref: canvas => this.canvas = canvas });
   }
 }
 
